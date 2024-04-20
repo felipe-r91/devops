@@ -1,0 +1,16 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "description": "devops demo",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node src/index.js "
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "http": "^0.0.1-security",
+    "node": "^18.20.2"
+  }
+}

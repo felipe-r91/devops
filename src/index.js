@@ -8,6 +8,9 @@ app.get('/', (req, res) => {
 
 app.get('/test', (req, res) => {
   res.send('Teste ok')
+  if(res.status === 200){
+    console.log('Teste finalizado com sucesso')
+  }
 })
 
 

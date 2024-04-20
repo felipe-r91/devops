@@ -12,5 +12,8 @@
     "express": "^4.19.2",
     "http": "^0.0.1-security",
     "node": "^18.20.2"
+  },
+  "devDependencies": {
+    "wait-on": "^7.2.0"
   }
 }

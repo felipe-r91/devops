@@ -13,14 +13,13 @@ jobs:
     steps: 
       - uses: actions/checkout@v3
       - run: node -v
-  
+
   test-job:
     runs-on: ubuntu-latest
-    needs: build-job
     steps:
       - uses: actions/checkout@v3
       - name: Start server
-        run: node src/index.js
+        run: nohup node src/index.js > server.log 2>&1 &
   
   deploy-job:
     runs-on: ubuntu-latest
@@ -28,14 +27,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Wait for server to start
-        run: |
-          for i in {1..10}; do
-            if curl -sSf http://localhost:3000/test &> /dev/null; then
-              echo "Server is ready"
-              break
-            else
-              echo "Retrying... Attempt $i"
-              sleep 5
-            fi
-          done
+        run: sleep 10
       - run: curl http://localhost:3000/test
+

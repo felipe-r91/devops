@@ -20,9 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Start server
-        run: |
-          nohup node src/index.js --host=localhost --port=3000 > server.log 2>&1 &
-          sleep 5  # Wait for the server to start
+        run: node src/index.js
   
   deploy-job:
     runs-on: ubuntu-latest
@@ -32,4 +30,4 @@ jobs:
       - name: Wait for server to start
         run: sleep 10  # Adjust this wait time as needed
       - name: Check server status
-        run: curl http://localhost:3000/test
+        run: curl http://localhost:3000/

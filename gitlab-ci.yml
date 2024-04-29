@@ -1,0 +1,23 @@
+image: ubuntu:latest
+
+stages:
+    ['build', 'test', 'deploy']
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y nodejs npm
+
+build-job:
+    stage: build
+    script:
+        - node -v
+
+test-job:
+    stage: test
+    script:
+        - node src/test.js
+
+deploy-job:
+    stage: deploy
+    script:
+        - node src/server.js &
